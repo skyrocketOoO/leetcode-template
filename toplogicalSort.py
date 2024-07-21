@@ -4,14 +4,14 @@ class Graph:
     def __init__(self):
         self.graph = defaultdict(list)  # Default dictionary to store graph
 
-    def add_edge(self, u, v):
+    def add(self, u, v):
         # Add edge from u to v
         self.graph[u].append(v)
         # Ensure all vertices are in the graph
         if v not in self.graph:
             self.graph[v] = []
 
-    def topological_sort(self):
+    def sort(self):
         # Calculate in-degrees of all vertices
         in_degree = {u: 0 for u in self.graph}
         for u in self.graph:
@@ -43,13 +43,13 @@ class Graph:
 # Example usage
 if __name__ == "__main__":
     g = Graph()
-    g.add_edge('A', 'C')
-    g.add_edge('B', 'C')
-    g.add_edge('C', 'E')
-    g.add_edge('D', 'E')
-    g.add_edge('E', 'F')
+    g.add('A', 'C')
+    g.add('B', 'C')
+    g.add('C', 'E')
+    g.add('D', 'E')
+    g.add('E', 'F')
     
-    result = g.topological_sort()
+    result = g.sort()
     if result:
         print("Topological Sort of the given graph:")
         print(result)
